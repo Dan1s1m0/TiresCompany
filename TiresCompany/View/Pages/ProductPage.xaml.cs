@@ -12,19 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TiresCompany.View.Pages;
 
-namespace TiresCompany
+namespace TiresCompany.View.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для ProductPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ProductPage : Page
     {
-        public MainWindow()
+        public ProductPage()
         {
             InitializeComponent();
-            MainFrame.Navigate(new ProductPage());
         }
     }
 }
