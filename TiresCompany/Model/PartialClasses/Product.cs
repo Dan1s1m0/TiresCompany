@@ -31,8 +31,7 @@ namespace TiresCompany.Model
                 {
                     arrayMaterials.Add(item.Material.Title.ToString());
                 }
-                materials += String.Join(",", arrayMaterials);
-
+                materials += String.Join(",", arrayMaterials); 
                 return materials;
             }
         }
