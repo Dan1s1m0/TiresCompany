@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TiresCompany.Model;
 
 namespace TiresCompany.View.Pages
 {
@@ -20,9 +21,11 @@ namespace TiresCompany.View.Pages
     /// </summary>
     public partial class ProductPage : Page
     {
+        Core db = new Core();
         public ProductPage()
         {
             InitializeComponent();
+            ProductListView.ItemsSource = db.context.Product.ToList();
         }
     }
 }
