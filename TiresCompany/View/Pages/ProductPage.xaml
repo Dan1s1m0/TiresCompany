@@ -22,14 +22,25 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <TextBox x:Name="SearchTextBox" Text="" TextChanged="SearchTextBox_TextChanged"  GotFocus="SearchTextBoxGotFocus" Grid.Column="0"/>
-            <ComboBox x:Name="SortTextBox" Grid.Column="1">
-                <ComboBoxItem>
-                    <TextBlock Text="По возрастанию"/>
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    <TextBlock Text="По Убыванию"/>
-                </ComboBoxItem>
-            </ComboBox>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <ComboBox x:Name="SortTextBox" Grid.Column="1"
+                      SelectedIndex="0"
+                      VerticalAlignment="Stretch"
+                      VerticalContentAlignment="Center"
+                      SelectionChanged="SortComboBoxSelectionChanget"    
+                      />
+                <Button
+                x:Name="ReverseButton"
+                Background="Transparent"
+                Width="17" Height="17"
+                Click="ReverseButtonClick"
+                >
+                <Button.Content>
+                        <Image Source=""/>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
             <ComboBox x:Name="FilterComboBox" Grid.Column="2" 
                       SelectedIndex="0"
                       SelectionChanged="FilterComboBoxSelectionChanged" 

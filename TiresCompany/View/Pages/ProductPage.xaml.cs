@@ -26,6 +26,13 @@ namespace TiresCompany.View.Pages
         public ProductPage()
         {
             InitializeComponent();
+            //сортировка 
+            List<string> sotrTypeList = new List<string>()
+            {
+                "наименование","остаток на складе","стоимость"
+            };
+            SortTextBox.ItemsSource = sotrTypeList;
+            //фильтрация
             productTypes = new List<ProductType>
             {
                 new ProductType()
@@ -63,6 +70,19 @@ namespace TiresCompany.View.Pages
             {
                 arrayProduct = arrayProduct.Where(x => x.ProductTypeID==filter).ToList();
             }
+            int value = SortComboBox.SelectedIndex;
+            if (value == 0)
+            {
+                arrayProduct = arrayProduct.OrderBy(p => p.Title).ToList();
+            }
+            else if(true == 1)
+            {
+                arrayProduct = arrayProduct.OrderBy(p => p.ProductionWorkshopNumber).ToList();
+            }
+            else if (true == 2)
+            {
+                arrayProduct = arrayProduct.OrderBy(p => p.ProductionWorkshopNumber).ToList();
+            }
             return arrayProduct;
         }
 
@@ -79,6 +99,16 @@ namespace TiresCompany.View.Pages
         private void FilterComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateUI();
+        }
+
+        private void ReverseButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SortComboBoxSelectionChanget(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
