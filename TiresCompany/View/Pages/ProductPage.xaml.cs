@@ -23,6 +23,7 @@ namespace TiresCompany.View.Pages
     {
         Core db = new Core();
         List<ProductType> productTypes;
+        bool reverseType;
         public ProductPage()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace TiresCompany.View.Pages
             {
                 "наименование","остаток на складе","стоимость"
             };
-            SortTextBox.ItemsSource = sotrTypeList;
+            SortComboBox.ItemsSource = sotrTypeList;
             //фильтрация
             productTypes = new List<ProductType>
             {
@@ -50,6 +51,7 @@ namespace TiresCompany.View.Pages
         {
             
             ProductListView.ItemsSource = GetRows();
+            CountRowsTextBlock.Text = $"{GetRows().Count()} / {db.context.Product.ToList().Count()}";
 
         }
 
@@ -75,13 +77,17 @@ namespace TiresCompany.View.Pages
             {
                 arrayProduct = arrayProduct.OrderBy(p => p.Title).ToList();
             }
-            else if(true == 1)
+            else if (value == 1)
             {
                 arrayProduct = arrayProduct.OrderBy(p => p.ProductionWorkshopNumber).ToList();
             }
-            else if (true == 2)
+            else if (value == 2)
             {
-                arrayProduct = arrayProduct.OrderBy(p => p.ProductionWorkshopNumber).ToList();
+                arrayProduct = arrayProduct.OrderBy(p => p.CostProduct).ToList();
+            }
+            if (reverseType)
+            {
+                arrayProduct.Reverse();
             }
             return arrayProduct;
         }
@@ -103,12 +109,13 @@ namespace TiresCompany.View.Pages
 
         private void ReverseButtonClick(object sender, RoutedEventArgs e)
         {
-
+            reverseType = !reverseType;
+            UpdateUI();
         }
 
         private void SortComboBoxSelectionChanget(object sender, SelectionChangedEventArgs e)
         {
-
+            UpdateUI();
         }
     }
 }

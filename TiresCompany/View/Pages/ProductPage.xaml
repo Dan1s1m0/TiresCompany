@@ -16,6 +16,10 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="1*"/>
@@ -23,7 +27,7 @@
             </Grid.ColumnDefinitions>
             <TextBox x:Name="SearchTextBox" Text="" TextChanged="SearchTextBox_TextChanged"  GotFocus="SearchTextBoxGotFocus" Grid.Column="0"/>
             <StackPanel Grid.Column="1" Orientation="Horizontal">
-                <ComboBox x:Name="SortTextBox" Grid.Column="1"
+                <ComboBox x:Name="SortComboBox" Grid.Column="1"
                       SelectedIndex="0"
                       VerticalAlignment="Stretch"
                       VerticalContentAlignment="Center"
@@ -36,7 +40,7 @@
                 Click="ReverseButtonClick"
                 >
                 <Button.Content>
-                        <Image Source=""/>
+                        <Image Source="C:\Users\311-19(student)\source\repos\TiresCompany\TiresCompany\Assets\Images\sortirovka"/>
                     </Button.Content>
                 </Button>
             </StackPanel>
@@ -49,6 +53,7 @@
                       > 
                 
             </ComboBox>
+            <TextBlock Grid.Row="1" Grid.Column="2" x:Name="CountRowsTextBlock" HorizontalAlignment="Right" Text="Количество записей"/>
 
         </Grid>
         <ListView Grid.Row="1" x:Name="ProductListView" HorizontalContentAlignment="Stretch">

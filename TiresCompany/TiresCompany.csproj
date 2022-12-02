@@ -249,6 +249,7 @@
     <Resource Include="Assets\Images\products\tire_8.jpg" />
     <Resource Include="Assets\Images\products\tire_9.jpg" />
     <Resource Include="Assets\Images\Logo1.ico" />
+    <None Include="Assets\Images\sortirovka" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>

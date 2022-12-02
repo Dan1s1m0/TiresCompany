@@ -20,6 +20,7 @@ namespace TiresCompany.Model
                 }
             }
         }
+       //Список материалов
         public string MaterialList
         {
             get
@@ -31,10 +32,18 @@ namespace TiresCompany.Model
                 {
                     arrayMaterials.Add(item.Material.Title.ToString());
                 }
-                materials += String.Join(",", arrayMaterials); 
+                if (arrayMaterials.Count==0)
+                {
+                    materials = "";
+                }
+                else
+                {
+                    materials += String.Join(",", arrayMaterials);
+                }
                 return materials;
             }
         }
+        //стоимость 
         public string CostProduct
         {
             get
