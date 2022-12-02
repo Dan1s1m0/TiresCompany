@@ -26,5 +26,13 @@ namespace TiresCompany
             InitializeComponent();
             MainFrame.Navigate(new ProductPage());
         }
+
+        private void BackButtonClick(object sender, RoutedEventArgs e)
+        {
+            if(MainFrame.CanGoBack)
+            {
+                MainFrame.GoBack();
+            }
+        }
     }
 }

@@ -117,5 +117,15 @@ namespace TiresCompany.View.Pages
         {
             UpdateUI();
         }
+
+        private void AddProductButtonClic(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new UpdateProductPage());
+        }
+
+        private void ProductListViewSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            AddProductButton.Content = "Редактировать товар";
+        }
     }
 }
